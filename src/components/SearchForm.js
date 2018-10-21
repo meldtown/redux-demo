@@ -15,7 +15,6 @@ class SearchForm extends React.Component {
   search = e => {
     const query = e.target.value.toLowerCase().trim();
     this.setState({query});
-    if (!query) return;
     this.props.searchMovies(query);
   }
 

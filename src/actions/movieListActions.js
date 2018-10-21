@@ -3,6 +3,7 @@ import {findMovies} from "../client";
 
 export const searchMovies = (query, page = 1) => async dispatch => {
   dispatch({type: actions.SEARCH_MOVIES});
+  if (!query) return dispatch({type: actions.SEARCH_MOVIES_SUCCESS, movieList: []})
   try {
     const res = await findMovies(query, page);
     const movieList = res.data.results;
